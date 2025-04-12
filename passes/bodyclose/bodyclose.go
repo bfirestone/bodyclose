@@ -306,6 +306,18 @@ func (r *runner) isCloseCall(ccall ssa.Instruction) bool {
 		if ccall.Call.Method != nil && ccall.Call.Method.Name() == r.closeMthd.Name() {
 			return true
 		}
+		// Check if this is a function literal that calls Close()
+		if fn, ok := ccall.Call.Value.(*ssa.Function); ok {
+			for _, b := range fn.Blocks {
+				for _, instr := range b.Instrs {
+					if call, ok := instr.(*ssa.Call); ok {
+						if call.Call.Method != nil && call.Call.Method.Name() == r.closeMthd.Name() {
+							return true
+						}
+					}
+				}
+			}
+		}
 	case *ssa.Call:
 		if ccall.Call.Method != nil && ccall.Call.Method.Name() == r.closeMthd.Name() {
 			return true
