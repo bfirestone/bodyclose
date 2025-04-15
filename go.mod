@@ -1,4 +1,4 @@
-module github.com/timakin/bodyclose
+module github.com/bfirestone/bodyclose
 
 go 1.12
 

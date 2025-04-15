@@ -3,7 +3,7 @@ package bodyclose_test
 import (
 	"testing"
 
-	"github.com/timakin/bodyclose/passes/bodyclose"
+	"github.com/bfirestone/bodyclose/passes/bodyclose"
 	"golang.org/x/tools/go/analysis/analysistest"
 )
 
