@@ -6,6 +6,31 @@
 
 ## Install
 
+### Using as a golangci-lint plugin (golangci-lint v2+)
+
+The bodyclose linter can be used as a plugin with golangci-lint v2+.
+
+1. Add the plugin to your project:
+
+```bash
+go get github.com/bfirestone/bodyclose
+```
+
+2. Enable it in your `.golangci.yml` configuration:
+
+```yaml
+linters-settings:
+  plugin:
+    enable: true
+    path: github.com/bfirestone/bodyclose # Add path to your go.mod
+
+linters:
+  enable:
+    - bodyclose # Enable the linter
+```
+
+### Using as a standalone tool
+
 You can get `bodyclose` by `go get` command.
 
 ```bash

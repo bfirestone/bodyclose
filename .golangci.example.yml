@@ -1,0 +1,17 @@
+version: "2"
+linters:
+  disable-all: true
+  enable:
+    - bodyclose
+  settings:
+    custom:
+      bodyclose:
+        type: 'module'
+        description: "Fork of bodyclose with enhanced error handling support"
+        original-url: github.com/bfirestone/bodyclose
+
+issues:
+  exclude-rules:
+    - linters:
+        - bodyclose
+      path: "_test.go"  # Exclude test files from bodyclose checks if desired
